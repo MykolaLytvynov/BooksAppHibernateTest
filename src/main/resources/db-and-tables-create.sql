@@ -15,7 +15,7 @@ CREATE TABLE books
     FOREIGN KEY (author_id) REFERENCES author (id)
 );
 
-CREATE TABLE book_store
+CREATE TABLE bookstore
 (
     id      SERIAL PRIMARY KEY,
     name    CHARACTER(15) NOT NULL,
@@ -25,9 +25,12 @@ CREATE TABLE book_store
 
 CREATE TABLE bookseller
 (
-    id    SERIAL PRIMARY KEY,
-    name  CHARACTER(15) NOT NULL,
-    store INTEGER       NOT NULL,
-    FOREIGN KEY (store) REFERENCES book_store (id)
+    id       SERIAL PRIMARY KEY,
+    name     CHARACTER(15) NOT NULL,
+    store_id INTEGER       NOT NULL,
+    FOREIGN KEY (store_id) REFERENCES bookstore (id)
 );
+
+DROP TABLE bookseller;
+DROP TABLE book_store;
 
