@@ -7,15 +7,16 @@ import lombok.ToString;
 import javax.persistence.*;
 
 @Entity
-@ToString
 @Getter
 @Setter
-@Table(name = "books")
+@ToString
+@Table(name = "BOOKS")
 public class Book {
     @Id
     @GeneratedValue
     private Integer id;
     private String name;
-    @ManyToOne(fetch = FetchType.LAZY)
+    @ManyToOne(fetch = FetchType.LAZY)//фишка тут
+    @ToString.Exclude//фишка тут
     private Author author;
 }

@@ -1,36 +1,32 @@
 CREATE DATABASE bookshibernatetest;
 
-CREATE TABLE author
+CREATE TABLE AUTHOR
 (
     id        SERIAL PRIMARY KEY,
     name      CHARACTER(10) NOT NULL,
     last_name CHARACTER(15) NOT NULL
 );
 
-CREATE TABLE books
+CREATE TABLE BOOKS
 (
     id        SERIAL PRIMARY KEY,
     name      CHARACTER(15) NOT NULL,
     author_id INTEGER       NOT NULL,
-    FOREIGN KEY (author_id) REFERENCES author (id)
+    FOREIGN KEY (author_id) REFERENCES AUTHOR (id)
 );
 
-CREATE TABLE bookstore
+CREATE TABLE BOOKSTORE
 (
     id      SERIAL PRIMARY KEY,
     name    CHARACTER(15) NOT NULL,
     address CHARACTER(15) NOT NULL
 );
 
-
-CREATE TABLE bookseller
+CREATE TABLE BOOKSELLER
 (
     id       SERIAL PRIMARY KEY,
     name     CHARACTER(15) NOT NULL,
     store_id INTEGER       NOT NULL,
-    FOREIGN KEY (store_id) REFERENCES bookstore (id)
+    FOREIGN KEY (store_id) REFERENCES BOOKSTORE (id)
 );
-
-DROP TABLE bookseller;
-DROP TABLE book_store;
 
